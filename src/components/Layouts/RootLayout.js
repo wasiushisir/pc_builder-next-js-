@@ -3,8 +3,10 @@ import { useContext } from "react";
 import { Pc } from "../Context";
 import googleImg from "../../../src/images/gggoogle (1).png";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const RootLayout = ({ children }) => {
+  const router = useRouter();
   const { data: session } = useSession();
   const { pc, setpc } = useContext(Pc);
   const propertyToMakeUnique = "Category";
@@ -22,7 +24,16 @@ const RootLayout = ({ children }) => {
 
   // const handleCategory = async (category) => {
   //   <Link href={`/category/${category}`}></Link>;
+
   // };
+
+  const handleClick = (pcId) => {
+    router.push({
+      pathname: "/pc/[pcId]",
+      query: { pcId: pcId },
+    });
+  };
+
   return (
     <>
       <div class="navbar  bg-base-300">
@@ -86,10 +97,11 @@ const RootLayout = ({ children }) => {
               >
                 {uniqueValuesArray.map((p) => (
                   <>
-                    <li>
-                      <Link href={`/pc/${p}`} className="hover:bg-warning">
-                        {p}
-                      </Link>
+                    <li
+                      onClick={() => handleClick(p)}
+                      className="hover:bg-warning cursor-pointer"
+                    >
+                      {p}
                     </li>
                   </>
                 ))}

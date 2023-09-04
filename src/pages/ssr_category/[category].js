@@ -21,7 +21,7 @@ export const getServerSideProps = async (context) => {
   if (category !== undefined && category !== null) {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/pc_builder?category=${category}`
+        `http://127.0.0.1:3000/api/pc_builder?category=${category}`
       );
       const data = await res.json();
 

@@ -63,7 +63,7 @@ pcDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = () => {
-  return fetch("http://localhost:3000/api/pc_builder")
+  return fetch("http://127.0.0.1:3000/api/pc_builder")
     .then((res) => res.json())
     .then((datas) => {
       return datas;
@@ -84,7 +84,7 @@ export async function getStaticProps({ params }) {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
   const res = await fetch(
-    `http://localhost:3000/api/pc_builder?id=${params.pcId}`
+    `http://127.0.0.1:3000/api/pc_builder?id=${params.pcId}`
   );
   const pc = await res.json();
 

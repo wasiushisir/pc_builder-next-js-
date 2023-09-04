@@ -6,7 +6,7 @@ import React, { useState } from "react";
 
 const Pc_Builder = ({ allPc }) => {
   const router = useRouter();
-  const [a, b] = useState([]);
+
   console.log(allPc, "inside form ssr");
   const propertyToMakeUnique = "Category";
 
@@ -101,7 +101,7 @@ Pc_Builder.getLayout = function getLayout(page) {
 };
 
 export const getServerSideProps = () => {
-  return fetch("http://localhost:3000/api/pc_builder")
+  return fetch("http://127.0.0.1:3000/api/pc_builder")
     .then((res) => res.json())
     .then((data) => {
       return data;

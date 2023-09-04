@@ -64,7 +64,7 @@ Home.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = () => {
-  return fetch("http://localhost:3000/api/pc_builder")
+  return fetch("http://127.0.0.1:3000/api/pc_builder")
     .then((res) => res.json())
     .then((data) => {
       return data;
