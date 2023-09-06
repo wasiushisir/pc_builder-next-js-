@@ -64,7 +64,7 @@ Home.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = () => {
-  return fetch("http://127.0.0.1:3000/api/pc_builder")
+  return fetch("https://pc-builder-ajh6t4zn5-wasiushisir.vercel.app/pc")
     .then((res) => res.json())
     .then((data) => {
       return data;

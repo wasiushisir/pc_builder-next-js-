@@ -5,7 +5,7 @@ const pcDetails = ({ pc }) => {
   return (
     <div>
       <div className="grid grid-cols-1   px-[100px]">
-        {pc?.data.map((pc) => (
+        {pc?.pcs.map((pc) => (
           <div className="rounded-2xl h-max w-full   flex flex-col items-center cursor-pointer overflow-hidden shadow-md border border-gray-100   gap-2 pb-3">
             <img className="h-[250px] w-full" src={pc?.Image} alt="" />
             <p className="text-md font-medium">
@@ -63,7 +63,7 @@ pcDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = () => {
-  return fetch("http://127.0.0.1:3000/api/pc_builder")
+  return fetch("https://pc-builder-ajh6t4zn5-wasiushisir.vercel.app/pc")
     .then((res) => res.json())
     .then((datas) => {
       return datas;
@@ -84,7 +84,7 @@ export async function getStaticProps({ params }) {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
   const res = await fetch(
-    `http://127.0.0.1:3000/api/pc_builder?id=${params.pcId}`
+    `https://pc-builder-ajh6t4zn5-wasiushisir.vercel.app/pc/${params.pcId}`
   );
   const pc = await res.json();
 

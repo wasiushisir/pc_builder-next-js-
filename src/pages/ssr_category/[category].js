@@ -21,7 +21,7 @@ export const getServerSideProps = async (context) => {
   if (category !== undefined && category !== null) {
     try {
       const res = await fetch(
-        `http://127.0.0.1:3000/api/pc_builder?category=${category}`
+        `https://pc-builder-ajh6t4zn5-wasiushisir.vercel.app/selectCategory?category=${category}`
       );
       const data = await res.json();
 

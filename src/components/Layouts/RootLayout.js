@@ -99,7 +99,7 @@ const RootLayout = ({ children }) => {
                   <>
                     <li
                       onClick={() => handleClick(p)}
-                      className="hover:bg-warning cursor-pointer"
+                      className="hover:bg-warning cursor-pointer my-1 py-2"
                     >
                       {p}
                     </li>
@@ -124,7 +124,7 @@ const RootLayout = ({ children }) => {
             <img
               onClick={() =>
                 signIn("google", {
-                  callbackUrl: "http://localhost:3000/",
+                  callbackUrl: "http://localhost:3000",
                 })
               }
               className="h-[30px] w-[30px] cursor-pointer mx-5 rounded-full"

@@ -1,11 +1,15 @@
+import { Pc } from "@/components/Context";
 import RootLayout from "@/components/Layouts/RootLayout";
+import { useContext } from "react";
 
-const Categories = ({ pc }) => {
-  console.log(pc, "inside of dynamic");
+const Categories = ({ pc1 }) => {
+  console.log(pc1, "inside of dynamic");
+  // const { pc, setpc } = useContext(Pc);
+
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 px-[100px]">
-        {pc?.data.map((pc) => (
+        {pc1?.data.map((pc) => (
           <div className="rounded-2xl h-max w-full md:w-[400px]  flex flex-col items-center cursor-pointer overflow-hidden shadow-md border border-gray-100   gap-2 pb-3">
             <img className="h-[250px] w-full" src={pc?.Image} alt="" />
             <p className="text-md font-medium">Category: {pc?.Category}</p>
@@ -53,7 +57,9 @@ Categories.getLayout = function getLayout(page) {
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch("http://127.0.0.1:3000/api/pc_builder");
+  const res = await fetch(
+    "https://pc-builder-ajh6t4zn5-wasiushisir.vercel.app/pc"
+  );
   const posts = await res.json();
 
   // Get the paths we want to pre-render based on posts
@@ -70,10 +76,10 @@ export async function getStaticProps({ params }) {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
   const res = await fetch(
-    `http://127.0.0.1:3000/api/pc_builder?category=${params.pcId}`
+    `https://pc-builder-ajh6t4zn5-wasiushisir.vercel.app/selectCategory?category=${params.pcId}`
   );
-  const pc = await res.json();
+  const pc1 = await res.json();
 
   // Pass post data to the page via props
-  return { props: { pc } };
+  return { props: { pc1 } };
 }
