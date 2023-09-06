@@ -124,7 +124,7 @@ const RootLayout = ({ children }) => {
             <img
               onClick={() =>
                 signIn("google", {
-                  callbackUrl: "http://localhost:3000",
+                  callbackUrl: "https://pc-builder-front.vercel.app",
                 })
               }
               className="h-[30px] w-[30px] cursor-pointer mx-5 rounded-full"
