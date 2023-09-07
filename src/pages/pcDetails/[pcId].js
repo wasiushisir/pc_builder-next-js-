@@ -81,8 +81,6 @@ export const getStaticPaths = () => {
 };
 
 export async function getStaticProps({ params }) {
-  // params contains the post `id`.
-  // If the route is like /posts/1, then params.id is 1
   const res = await fetch(
     `https://pc-builder-server-jnez.vercel.app/pc/${params.pcId}`
   );
