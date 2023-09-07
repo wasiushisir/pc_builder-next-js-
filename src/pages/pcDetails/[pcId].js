@@ -63,7 +63,7 @@ pcDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = () => {
-  return fetch("https://pc-builder-ajh6t4zn5-wasiushisir.vercel.app/pc")
+  return fetch("https://pc-builder-server-jnez.vercel.app/pc")
     .then((res) => res.json())
     .then((datas) => {
       return datas;
