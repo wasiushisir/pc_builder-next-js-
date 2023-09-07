@@ -11,7 +11,7 @@ export const authOptions = {
     // ...add more providers here
   ],
   pages: {
-    signIn: "https://pc-builder-front-wasiushisir.vercel.app/",
+    signIn: "/",
   },
 };
 
