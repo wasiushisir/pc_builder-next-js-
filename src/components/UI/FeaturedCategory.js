@@ -18,10 +18,10 @@ const FeaturedCategory = () => {
 
   const uniqueValuesArray = Array.from(uniqueValuesSet);
 
-  const handleClick = (category) => {
+  const handleClick = (pcId) => {
     router.push({
-      pathname: "/pc/[category]",
-      query: { category: category },
+      pathname: "/pcDetails/[pcId]",
+      query: { pcId: pcId },
     });
   };
 

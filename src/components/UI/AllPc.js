@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const AllPc = ({ allPc }) => {
-  const handleClick = (category) => {
+  const handleClick = (pcId) => {
     router.push({
-      pathname: "/pc/[category]",
-      query: { category: category },
+      pathname: "/pcDetails/[pcId]",
+      query: { pcId: pcId },
     });
   };
 
