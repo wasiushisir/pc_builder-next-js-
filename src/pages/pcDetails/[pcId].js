@@ -76,7 +76,7 @@ export const getStaticPaths = () => {
       return paths;
     })
     .then((paths) => {
-      return { paths, fallback: false };
+      return { paths, fallback: true };
     });
 };
 
