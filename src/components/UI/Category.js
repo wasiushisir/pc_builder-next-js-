@@ -8,16 +8,13 @@ const Category = ({ catagories }) => {
   const router = useRouter();
 
   const handleAddtoBuild = async (pc) => {
-    const res = await fetch(
-      "https://pc-builder-ajh6t4zn5-wasiushisir.vercel.app/pc",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(pc),
-      }
-    );
+    const res = await fetch("https://pc-builder-server-jnez.vercel.app/pc", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(pc),
+    });
     const data = await res.json();
 
     if (data) {
