@@ -1,15 +1,13 @@
 import Link from "next/link";
 
 const AllPc = ({ allPc }) => {
-  const data = [
-    { id: 1, serviceId: 1, title: "A", Category: "CPU" },
-    { id: 2, serviceId: 3, title: "T", Category: "RAM" },
-    { id: 3, serviceId: 45, title: "R" },
-    { id: 4, serviceId: 55, title: "Q" },
-    { id: 5, serviceId: 58, title: "S" },
-    { id: 6, serviceId: 63, title: "zx" },
-    { id: 7, serviceId: 66, title: "y" },
-  ];
+  const handleClick = (category) => {
+    router.push({
+      pathname: "/pc/[category]",
+      query: { category: category },
+    });
+  };
+
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 px-[100px] mt-[40px]">
@@ -47,11 +45,13 @@ const AllPc = ({ allPc }) => {
                 className="mask mask-star-2 bg-orange-400"
               />
             </div>
-            <Link href={`/pcDetails/${pc._id}`}>
-              <button className="btn btn-success md:btn-sm  btn-xs">
-                Details
-              </button>
-            </Link>
+
+            <button
+              onClick={() => handleClick(category)}
+              className="btn btn-success md:btn-sm  btn-xs"
+            >
+              Details
+            </button>
 
             {/* {data
               .filter((w) => w.Category === pc.Category)
