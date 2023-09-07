@@ -5,7 +5,7 @@ const pcDetails = ({ pc }) => {
   return (
     <div>
       <div className="grid grid-cols-1   px-[100px]">
-        {pc?.pcs.map((pc) => (
+        {pc?.pcs?.map((pc) => (
           <div className="rounded-2xl h-max w-full   flex flex-col items-center cursor-pointer overflow-hidden shadow-md border border-gray-100   gap-2 pb-3">
             <img className="h-[250px] w-full" src={pc?.Image} alt="" />
             <p className="text-md font-medium">
