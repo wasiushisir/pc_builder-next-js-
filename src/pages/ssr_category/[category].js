@@ -21,7 +21,7 @@ export const getServerSideProps = async (context) => {
   if (category !== undefined && category !== null) {
     try {
       const res = await fetch(
-        `https://pc-builder-server-jnez.vercel.app/selectCategory?category=${category}`
+        `https://cp-qjtzdicx8-wasiushisir.vercel.app/selectCategory?category=${category}`
       );
       const data = await res.json();
 

@@ -9,7 +9,7 @@ const Categories = ({ pc1 }) => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 px-[100px]">
-        {pc1?.data.map((pc) => (
+        {pc1?.data?.map((pc) => (
           <div className="rounded-2xl h-max w-full md:w-[400px]  flex flex-col items-center cursor-pointer overflow-hidden shadow-md border border-gray-100   gap-2 pb-3">
             <img className="h-[250px] w-full" src={pc?.Image} alt="" />
             <p className="text-md font-medium">Category: {pc?.Category}</p>
@@ -57,7 +57,7 @@ Categories.getLayout = function getLayout(page) {
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch("https://pc-builder-server-jnez.vercel.app/pc");
+  const res = await fetch("https://cp-sand.vercel.app/pc");
   const posts = await res.json();
 
   // Get the paths we want to pre-render based on posts
@@ -67,17 +67,17 @@ export async function getStaticPaths() {
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
   const res = await fetch(
-    `https://pc-builder-server-jnez.vercel.app/selectCategory?category=${params.pcId}`
+    `https://cp-sand.vercel.app/selectCategory?category=${params.pcId}`
   );
   const pc1 = await res.json();
 
   // Pass post data to the page via props
-  return { props: { pc1 } };
+  return { props: { pc1 }, revalidate: 10 };
 }

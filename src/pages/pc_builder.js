@@ -101,7 +101,7 @@ Pc_Builder.getLayout = function getLayout(page) {
 };
 
 export const getServerSideProps = () => {
-  return fetch("https://pc-builder-server-jnez.vercel.app/pc")
+  return fetch("https://cp-qjtzdicx8-wasiushisir.vercel.app/pc")
     .then((res) => res.json())
     .then((data) => {
       return data;

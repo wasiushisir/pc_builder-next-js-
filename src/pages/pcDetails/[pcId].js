@@ -63,29 +63,27 @@ pcDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = () => {
-  return fetch("https://pc-builder-server-jnez.vercel.app/pc")
+  return fetch("https://cp-sand.vercel.app/pc")
     .then((res) => res.json())
     .then((datas) => {
       return datas;
     })
     .then((datas) => {
-      const paths = datas?.pcs.map((pcId) => ({
+      const paths = datas?.pcs?.map((pcId) => ({
         params: { pcId: pcId._id },
       }));
 
       return paths;
     })
     .then((paths) => {
-      return { paths, fallback: true };
+      return { paths, fallback: false };
     });
 };
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(
-    `https://pc-builder-server-jnez.vercel.app/pc/${params.pcId}`
-  );
+  const res = await fetch(`https://cp-sand.vercel.app/pc/${params.pcId}`);
   const pc = await res.json();
 
   // Pass post data to the page via props
-  return { props: { pc } };
+  return { props: { pc }, revalidate: 10 };
 }

@@ -20,7 +20,7 @@ const FeaturedCategory = () => {
 
   const handleClick = (pcId) => {
     router.push({
-      pathname: "/pcDetails/[pcId]",
+      pathname: "/pc/[pcId]",
       query: { pcId: pcId },
     });
   };

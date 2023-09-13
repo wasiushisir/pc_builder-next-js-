@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const AllPc = ({ allPc }) => {
+  const router = useRouter();
   const handleClick = (pcId) => {
     router.push({
       pathname: "/pcDetails/[pcId]",
@@ -47,7 +49,7 @@ const AllPc = ({ allPc }) => {
             </div>
 
             <button
-              onClick={() => handleClick(category)}
+              onClick={() => handleClick(pc._id)}
               className="btn btn-success md:btn-sm  btn-xs"
             >
               Details
