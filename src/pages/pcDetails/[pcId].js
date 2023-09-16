@@ -63,7 +63,7 @@ pcDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = () => {
-  return fetch("https://cp-sand.vercel.app/pc")
+  return fetch("https://pc-builder-server-jnez.vercel.app/pc")
     .then((res) => res.json())
     .then((datas) => {
       return datas;
@@ -81,7 +81,9 @@ export const getStaticPaths = () => {
 };
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`https://cp-sand.vercel.app/pc/${params.pcId}`);
+  const res = await fetch(
+    `https://pc-builder-server-jnez.vercel.app/pc/${params.pcId}`
+  );
   const pc = await res.json();
 
   // Pass post data to the page via props

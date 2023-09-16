@@ -57,7 +57,7 @@ Categories.getLayout = function getLayout(page) {
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch("https://cp-sand.vercel.app/pc");
+  const res = await fetch("https://pc-builder-server-jnez.vercel.app/pc");
   const posts = await res.json();
 
   // Get the paths we want to pre-render based on posts
@@ -74,7 +74,7 @@ export async function getStaticProps({ params }) {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
   const res = await fetch(
-    `https://cp-sand.vercel.app/selectCategory?category=${params.pcId}`
+    `https://pc-builder-server-jnez.vercel.app/selectCategory?category=${params.pcId}`
   );
   const pc1 = await res.json();
 
